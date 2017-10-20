@@ -1,0 +1,46 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/animate.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/icomoon.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/bootstrap.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/magnific-popup.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.carousel.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.theme.default.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/style.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/stylelogin.css}" media="screen"/><title th:text="#{label.pages.home.title}">home</title>
+  <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+</head>
+<body>
+
+<div id="page">
+    <div th:replace="header/header :: header">...</div>
+      <div class="container">
+
+
+              <div class="row wrapper">
+
+              <p> check role </p>
+              <div ></div>
+                  <div class="container">
+                      <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.user.message}">user</div>
+
+                      <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.admin.message}">admin</div>
+
+                      <p th:text="${param.user[0]}">user</p>
+
+                      <a class="btn btn-default" th:href="@{/admin.html}" th:text="#{label.pages.admin}">admin</a>
+                      <br /> <br />
+                      <a th:href="@{/loggedUsers}" th:text="#{label.pages.users.message}">View logged in users</a>
+                      <br />
+                      <a th:href="@{/loggedUsersFromSessionRegistry}" th:text="#{label.pages.users.sessionregistry.message}">View logged in users</a>
+
+                  </div>
+                <span>  nnnn </span>
+          </div>
+      </div>
+    <div th:replace="fragments/footer :: footer">...</div>
+</div>
+</body>
+</html>
